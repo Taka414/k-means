@@ -1,0 +1,119 @@
+﻿<Controls:MetroWindow x:Class="Tttaka.Kmeans.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      Title="MainWindow" 
+                      Height="500" 
+                      Width="720"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      ResizeMode="CanResizeWithGrip"
+                      WindowTransitionsEnabled="False"
+                      WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded">
+    <Controls:MetroWindow.Resources>
+        
+        <SolidColorBrush x:Key="Color_m_1" Color="#F0DE6641"/>
+        <SolidColorBrush x:Key="Color_m_2" Color="#F0F2E55C"/>
+        <SolidColorBrush x:Key="Color_m_3" Color="#F039A869"/>
+        <SolidColorBrush x:Key="Color_m_4" Color="#F000AEE0"/>
+        <SolidColorBrush x:Key="Color_m_5" Color="#F05D5099"/>
+        <SolidColorBrush x:Key="Color_m_6" Color="#F0DC669B"/>
+
+        <SolidColorBrush x:Key="Color_l_1" Color="#33DE6641"/>
+        <SolidColorBrush x:Key="Color_l_2" Color="#33F2E55C"/>
+        <SolidColorBrush x:Key="Color_l_3" Color="#3339A869"/>
+        <SolidColorBrush x:Key="Color_l_4" Color="#3300AEE0"/>
+        <SolidColorBrush x:Key="Color_l_5" Color="#335D5099"/>
+        <SolidColorBrush x:Key="Color_l_6" Color="#33DC669B"/>
+
+        <SolidColorBrush x:Key="Color_c_1" Color="#F0E60012"/>
+        <SolidColorBrush x:Key="Color_c_2" Color="#F0FFF100"/>
+        <SolidColorBrush x:Key="Color_c_3" Color="#F0009944"/>
+        <SolidColorBrush x:Key="Color_c_4" Color="#F000A0E9"/>
+        <SolidColorBrush x:Key="Color_c_5" Color="#F01D2088"/>
+        <SolidColorBrush x:Key="Color_c_6" Color="#F0E4007F"/>
+
+    </Controls:MetroWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Margin="5 7 5 5" 
+                BorderBrush="{DynamicResource AccentColorBrush3}" 
+                BorderThickness="1">
+
+            <Canvas x:Name="Canvas"
+                    Grid.Row="0"
+                    Margin="5">
+
+                <Ellipse x:Name="Point" 
+                         Height="6" 
+                         Width="6"
+                         Canvas.Left="78"
+                         Stroke="#EEF94A33" 
+                         StrokeThickness="1"
+                         Canvas.Top="90"/>
+            </Canvas>
+
+        </Border>
+
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock HorizontalAlignment="Right"
+                           VerticalAlignment="Center"
+                           Text="Cluster:　" />
+
+                <Controls:NumericUpDown x:Name="ClusterNum"
+                                        Grid.Column="1" 
+                                        HorizontalAlignment="Left"
+                                        Margin="0 5 0 5"
+                                        Width="150"
+                                        Minimum="1"
+                                        Maximum="1000"
+                                        Value="3"/>
+
+                <TextBlock Grid.Row="1" 
+                           HorizontalAlignment="Right" 
+                           VerticalAlignment="Center"
+                           Text="Samples:　"/>
+
+                <Controls:NumericUpDown x:Name="SamplesNum"
+                                        Grid.Row="1" 
+                                        Grid.Column="2"
+                                        HorizontalAlignment="Left"
+                                        Margin="0 5 0 5"
+                                        Width="150"
+                                        Minimum="1"
+                                        Maximum="5000"
+                                        Value="100"/>
+            </Grid>
+
+            <StackPanel Margin="0 12 0 13"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Button Height="28" 
+                        Width="120"  
+                        Content="Step"
+                        Click="Button_Step"/>
+
+                <Button Margin="17 0 0 0" 
+                        Height="28" 
+                        Width="120"  
+                        Content="Reset" 
+                        Click="Button_Reset" />
+                
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>
